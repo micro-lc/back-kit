@@ -1,0 +1,12 @@
+{
+  "name": "@micro-lc/back-kit-engine",
+  "version": "0.17.8",
+  "peerDependencies": {
+    "lit": ">=2",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "engines": {
+    "node": ">=16.17.0"
+  }
+}

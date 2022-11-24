@@ -1,0 +1,8 @@
+.yarn/
+
+dist/
+node_modules/
+**/build/
+coverage/
+
+packages/documentation/static/
