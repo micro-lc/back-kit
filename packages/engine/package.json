@@ -1,12 +1,33 @@
 {
   "name": "@micro-lc/back-kit-engine",
-  "version": "0.17.8",
+  "version": "0.20.0-rc0",
+  "scripts": {
+    "cleanup": "yarn run -T rimraf dist node_modules coverage",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"CommonJS\" }' ts-mocha",
+    "make-types": "ts-node ./scripts/make-types.ts",
+    "build": "yarn run -T run-p make-types"
+  },
   "peerDependencies": {
     "lit": ">=2",
     "react": ">=18",
     "react-dom": ">=18"
   },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^18.11.9",
+    "ajv": "^8.11.2",
+    "ajv-formats": "^2.1.1",
+    "chai": "^4.3.7",
+    "glob": "^8.0.3",
+    "json-schema-to-typescript": "^11.0.2",
+    "mocha": "^10.1.0",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.1"
+  },
   "engines": {
     "node": ">=16.17.0"
-  }
+  },
+  "stableVersion": "0.17.8"
 }

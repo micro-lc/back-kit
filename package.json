@@ -8,10 +8,19 @@
     "packages/*"
   ],
   "scripts": {
-    "e": "yarn workspace @micro-lc/back-kit-engine"
+    "e": "yarn workspace @micro-lc/back-kit-engine",
+    "check:types": "yarn workspaces foreach --all run check:types",
+    "build": "yarn workspaces foreach --all run build",
+    "cleanup": "yarn workspaces foreach --all --parallel run cleanup",
+    "lint:code": "eslint . --ext .mjs,.js,.jsx,.ts,.tsx,.schema.json --resolve-plugins-relative-to .",
+    "lint:style": "stylelint \"**/*.{css,less}\" --allow-empty-input",
+    "lint": "NODE_OPTIONS=--max-old-space-size=10000 yarn run-p lint:code lint:style",
+    "test": "yarn workspaces foreach --all run test",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
+    "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "confusing-browser-globals": "^1.0.11",
@@ -30,6 +39,8 @@
     "eslint-visitor-keys": "^3.3.0",
     "husky": "^8.0.2",
     "jsonc-eslint-parser": "^2.1.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "stylelint": "^14.15.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^29.0.0",

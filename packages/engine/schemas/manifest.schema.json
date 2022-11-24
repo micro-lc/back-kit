@@ -1,0 +1,23 @@
+{
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/manifest.schema.json#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Manifest",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
+    },
+    "description": {
+      "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
+    },
+    "type": {
+      "enum": ["layout", "connector", "adapter"]
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#"
+      }
+    }
+  }
+}
