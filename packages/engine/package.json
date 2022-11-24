@@ -1,6 +1,11 @@
 {
   "name": "@micro-lc/back-kit-engine",
   "version": "0.20.0-rc0",
+  "files": [
+    "schemas/*.json",
+    "schemas/*.d.ts",
+    "package.json"
+  ],
   "scripts": {
     "cleanup": "yarn run -T rimraf dist node_modules coverage",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"CommonJS\" }' ts-mocha",
