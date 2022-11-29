@@ -1,0 +1,6 @@
+{
+  "name": "@micro-lc/back-kit-engine/events",
+  "main": "../dist/cjs/events/index.js",
+  "module": "../dist/es/events/index.js",
+  "types": "../dist/types/events/index.d.ts"
+}

@@ -2,15 +2,31 @@
   "name": "@micro-lc/back-kit-engine",
   "version": "0.20.0-rc0",
   "files": [
+    "dist",
+    "**/package.json",
     "schemas/*.json",
     "schemas/*.d.ts",
     "package.json"
   ],
+  "exports": {
+    "./events": {
+      "import": "./dist/es/events/index.js",
+      "node": "./dist/cjs/events/index.d.ts",
+      "types": "./dist/types/events/index.d.ts"
+    },
+    "./schemas": {
+      "types": "./schemas/index.d.ts"
+    }
+  },
   "scripts": {
     "cleanup": "yarn run -T rimraf dist node_modules coverage",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"CommonJS\" }' ts-mocha",
+    "coverage": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"CommonJS\" }' nyc ts-mocha",
     "make-types": "ts-node ./scripts/make-types.ts",
-    "build": "yarn run -T run-p make-types"
+    "build:types": "tsc --project ./scripts/tsconfig.types.json",
+    "build:es": "ts-node ./scripts/compile.esm.ts",
+    "build:cjs": "ts-node ./scripts/compile.cjs.ts",
+    "build": "yarn run -T run-p make-types build:types build:es build:cjs"
   },
   "peerDependencies": {
     "lit": ">=2",
@@ -20,14 +36,16 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.0",
+    "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.9",
     "ajv": "^8.11.2",
     "ajv-formats": "^2.1.1",
     "chai": "^4.3.7",
+    "esbuild": "^0.15.16",
     "glob": "^8.0.3",
     "json-schema-to-typescript": "^11.0.2",
     "mocha": "^10.1.0",
+    "nyc": "^15.1.0",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.1"
   },
