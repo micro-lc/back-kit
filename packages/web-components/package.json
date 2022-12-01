@@ -1,0 +1,43 @@
+{
+  "name": "@micro-lc/bk-web-components",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6007"
+  },
+  "dependencies": {
+    "@micro-lc/back-kit-engine": "workspace:*",
+    "@micro-lc/bk-react-components": "workspace:*",
+    "lit": "^2.4.1",
+    "rxjs": "^7.5.7"
+  },
+  "devDependencies": {
+    "@micro-lc/iconic": "^0.1.2",
+    "@micro-lc/interfaces": "^0.4.0",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-backgrounds": "^6.5.13",
+    "@storybook/addon-docs": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/addon-measure": "^6.5.13",
+    "@storybook/addon-outline": "^6.5.13",
+    "@storybook/addons": "^6.5.13",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/client-api": "^6.5.13",
+    "@storybook/client-logger": "^6.5.13",
+    "@storybook/core-common": "^6.5.13",
+    "@storybook/theming": "^6.5.13",
+    "@storybook/web-components": "^6.5.13",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "lit-html": "^2.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "vite": "^3.2.4",
+    "vite-plugin-dynamic-import": "^1.2.4",
+    "vite-plugin-replace": "^0.1.1",
+    "vite-tsconfig-paths": "^3.6.0"
+  }
+}
