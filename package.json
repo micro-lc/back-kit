@@ -9,6 +9,8 @@
   ],
   "scripts": {
     "e": "yarn workspace @micro-lc/back-kit-engine",
+    "wc": "yarn workspace @micro-lc/bk-web-components",
+    "rc": "yarn workspace @micro-lc/bk-react-components",
     "check:types": "yarn workspaces foreach --all run check:types",
     "build": "yarn workspaces foreach --all run build",
     "cleanup": "yarn workspaces foreach --all --parallel run cleanup",

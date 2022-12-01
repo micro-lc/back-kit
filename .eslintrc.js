@@ -49,6 +49,8 @@ const tsConfigs = {
   parserOptions: {
     project: [
       path.resolve(__dirname, './packages/engine/tsconfig.json'),
+      path.resolve(__dirname, './packages/react-components/tsconfig.json'),
+      path.resolve(__dirname, './packages/web-components/tsconfig.json'),
     ],
   },
 
