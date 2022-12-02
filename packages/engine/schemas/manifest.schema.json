@@ -3,6 +3,34 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Manifest",
   "type": "object",
+  "definitions": {
+    "fetch": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {"type": "string"},
+              "method": {"type": "string", "enum": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"]},
+              "handler": {
+                "type": "object",
+                "instanceOf": "Function",
+                "default": "() => Promise.resolve()",
+                "tsType": "(response: Response, context?: Record<string, unknown>) => Promise<unknown>"
+              }
+            },
+            "required": ["url", "method"]
+          }
+        }
+      }
+    }
+  },
   "properties": {
     "label": {
       "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
@@ -12,6 +40,12 @@
     },
     "type": {
       "enum": ["layout", "connector", "adapter"]
+    },
+    "mocks": {
+      "type": "object",
+      "properties": {
+        "fetch": { "$ref": "#/definitions/fetch" }
+      }
     },
     "properties": {
       "type": "object",

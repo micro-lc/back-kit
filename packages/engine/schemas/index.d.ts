@@ -20,9 +20,23 @@ export interface Manifest {
   label?: LocalizedText
   description?: LocalizedText
   type?: "layout" | "connector" | "adapter"
+  mocks?: {
+    fetch?: Fetch
+    [k: string]: unknown
+  }
   properties?: {
     [k: string]: MiaSchema
   }
+  [k: string]: unknown
+}
+export interface Fetch {
+  context?: string[]
+  routes?: {
+    url: string
+    method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
+    handler?: (response: Response, context?: Record<string, unknown>) => Promise<unknown>
+    [k: string]: unknown
+  }[]
   [k: string]: unknown
 }
 export interface MiaSchema {
