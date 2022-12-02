@@ -1,6 +1,6 @@
 {
   "name": "@micro-lc/back-kit-engine",
-  "version": "0.20.0-rc1",
+  "version": "0.20.1",
   "files": [
     "dist",
     "**/package.json",
@@ -51,6 +51,5 @@
   },
   "engines": {
     "node": ">=16.17.0"
-  },
-  "stableVersion": "0.17.8"
+  }
 }
