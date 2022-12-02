@@ -6,14 +6,15 @@ import {
   customElement, property, query, state,
 } from 'lit/decorators.js'
 
+import { cssResult } from '../../../style'
+
 import type { LocalizedText } from './bk-modal.lib'
 import { createProps } from './bk-modal.lib'
 
-// import { cssResult } from '~/style'
 
 @customElement('bk-modal')
 export class BkModal extends BkComponent<ModalProps> {
-  // static styles = cssResult
+  static styles = cssResult
 
   @state() protected _visible?: boolean
 

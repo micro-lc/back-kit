@@ -7,11 +7,14 @@ import {
 } from 'lit/decorators.js'
 
 import type { AddNewPayload } from '../../../events'
+import { cssResult } from '../../../style'
 
 import { createProps } from './bk-add-new-button.lib'
 
 @customElement('bk-add-new-button')
 export class BkAddNewButton extends BkComponent<ButtonProps> {
+  static styles = cssResult
+
   @state() _loading = false
   @state() inObject = false
   @state() readonly = false

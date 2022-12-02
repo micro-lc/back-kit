@@ -1,3 +1,4 @@
+import AntdIcon from '@ant-design/icons'
 import type { Library } from '@micro-lc/iconic'
 import { useIcon } from '@micro-lc/iconic'
 import type { ModalProps as AntdModalProps } from 'antd'
@@ -27,7 +28,13 @@ function Modal({
   const Icon = useIcon(titleIcon, iconLibrary)
   const Title = (
     <div className='modal-title'>
-      {<Suspense fallback={<span></span>}><Icon/></Suspense>}
+      {
+        <Suspense fallback={<span></span>}>
+          <AntdIcon>
+            <Icon />
+          </AntdIcon>
+        </Suspense>
+      }
       <div className='title-text'>{title}</div>
     </div>
   )

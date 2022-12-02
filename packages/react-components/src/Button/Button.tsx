@@ -1,8 +1,11 @@
+import AntdIcon from '@ant-design/icons'
 import { useIcon } from '@micro-lc/iconic'
 import type { Library } from '@micro-lc/iconic'
 import type { ButtonProps as AntdButtonProps } from 'antd'
 import { Button as AntdButton } from 'antd'
 import React from 'react'
+
+import { ConfigProvider } from '../ConfigProvider'
 
 export type ButtonProps = AntdButtonProps & {
   content?: string
@@ -20,18 +23,24 @@ export default function Button({
   const buttonStyle = type === 'link' ? { style: { padding: 0 } } : {}
   const Icon = useIcon(iconId, iconLibrary)
 
-  // TODO remove check on iconId when iconic fix is released
   return (
-    <AntdButton
-      icon={
-        <React.Suspense fallback={<svg viewBox={'0 0 0 0'}/>}>
-          {iconId ? <Icon /> : undefined}
-        </React.Suspense>
-      }
-      {...buttonStyle}
-      {...rest}
-    >
-      {content}
-    </AntdButton>
+    <ConfigProvider>
+      <AntdButton
+        icon={
+          <React.Suspense fallback={<span />}>
+            {iconId
+              ? <AntdIcon>
+                <Icon />
+              </AntdIcon>
+              : undefined
+            }
+          </React.Suspense>
+        }
+        {...buttonStyle}
+        {...rest}
+      >
+        {content}
+      </AntdButton>
+    </ConfigProvider>
   )
 }

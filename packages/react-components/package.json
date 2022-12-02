@@ -11,13 +11,15 @@
     "build:types": "tsc --project scripts/tsconfig.types.json && echo '✓ react types'",
     "build:es": "ts-node scripts/build.es.ts",
     "build:cjs": "ts-node scripts/build.cjs.ts",
-    "build": "run-p build:types build:es build:cjs",
+    "build:styles": "ts-node scripts/copy.styles.ts",
+    "build": "run-p build:types build:es build:cjs build:styles",
     "storybook": "start-storybook -p 6006"
   },
   "engines": {
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.8.0",
     "@micro-lc/iconic": "^0.1.2",
     "antd": "4.24.1",
     "react": "^18.2.0",
