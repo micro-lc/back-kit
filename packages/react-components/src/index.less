@@ -1,0 +1,41 @@
+@import './Modal/_Modal.less';
+
+@border-radius: 16px;
+@scroll-bar-size: 6px;
+@scroll-bar-radius: 10px;
+@background-color: #F5F5F5;
+
+@{html-selector} {
+  ::-webkit-scrollbar {
+    display: block;
+    width: @scroll-bar-size;
+    height: @scroll-bar-size;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    overflow: visible;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: @scroll-bar-radius;
+  }
+
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+}
+
+.@{ant-prefix}-typography-caption {
+    font-size: 12px;
+    color: #757575;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+.@{ant-prefix}-typography-b2-regular {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}

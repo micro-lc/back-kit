@@ -1,0 +1,44 @@
+
+.@{ant-prefix}__modal {
+  .@{ant-prefix}-modal {
+    top: 70px;
+
+    .@{ant-prefix}-modal-content {
+      overflow: hidden;
+      border-radius: @border-radius;
+    }
+
+    .@{ant-prefix}-modal-header,
+    .@{ant-prefix}-modal-footer {
+      border-color: @background-color;
+    }
+
+    .@{ant-prefix}-modal-footer {
+      width: 100%;
+    }
+
+    .@{ant-prefix}-modal-footer {
+      display: flex;
+      flex-flow: row-reverse;
+      justify-content: space-between;
+      padding: 10px 24px;
+    }
+
+    .@{ant-prefix}-modal-body {
+      padding: 10px 24px;
+    }
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      column-gap: 0.75em;
+
+      .anticon,
+      .title-text {
+        display: flex;
+        font-weight: 600;
+      }
+    }
+  }
+}
