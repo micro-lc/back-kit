@@ -32,9 +32,14 @@ export interface Manifest {
 export interface Fetch {
   context?: string[]
   routes?: {
-    url: string
+    url: {
+      origin?: string
+      pathname: string
+      search?: string
+      [k: string]: unknown
+    }
     method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
-    handler?: (response: Response, context?: Record<string, unknown>) => Promise<unknown>
+    handler?: (url: URL, context: Record<string, unknown>) => Promise<Response>
     [k: string]: unknown
   }[]
   [k: string]: unknown

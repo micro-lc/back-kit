@@ -16,13 +16,20 @@
           "items": {
             "type": "object",
             "properties": {
-              "url": {"type": "string"},
+              "url": {
+                "type": "object",
+                "properties": {
+                  "origin": {"type": "string"},
+                  "pathname": {"type": "string"},
+                  "search": {"type": "string", "default": ""}
+                },
+                "required": ["pathname"]
+              },
               "method": {"type": "string", "enum": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"]},
               "handler": {
                 "type": "object",
                 "instanceOf": "Function",
-                "default": "() => Promise.resolve()",
-                "tsType": "(response: Response, context?: Record<string, unknown>) => Promise<unknown>"
+                "tsType": "(url: URL, context: Record<string, unknown>) => Promise<Response>"
               }
             },
             "required": ["url", "method"]
