@@ -1,0 +1,16 @@
+{
+  "name": "@micro-lc/back-kit-templates",
+  "version": "0.1.0",
+  "files": [
+    "*.json",
+    "package.json"
+  ],
+  "exports": {
+    "./page-with-table.json": {
+      "default": "./page-with-table.json"
+    }
+  },
+  "engines": {
+    "node": ">=16.17.0"
+  }
+}

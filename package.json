@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "e": "yarn workspace @micro-lc/back-kit-engine",
+    "t": "yarn workspace @micro-lc/back-kit-templates",
     "check:types": "yarn workspaces foreach --all run check:types",
     "build": "yarn workspaces foreach --all run build",
     "cleanup": "yarn workspaces foreach --all --parallel run cleanup",
