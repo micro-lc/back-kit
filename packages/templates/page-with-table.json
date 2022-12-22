@@ -1,248 +1,252 @@
 {
-  "$schema": "https://raw.githubusercontent.com/micro-lc/micro-lc/main/packages/interfaces/schemas/v2/plugin.schema.json#",
-  "definitions": {
-    "dataSchema": {
-      "type": "object",
-      "properties": {}
-    }
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/page-with-table.json#",
+  "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
+  "meta": {
+    "label": "Page With Table"
   },
-  "content": {
-    "content": [
-      {
-        "content": [
-          {
-            "tag": "div",
-            "content": [
-              {
-                "properties": {
-                  "content": "Page title"
+  "template": {
+    "definitions": {
+      "dataSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "content": {
+      "content": [
+        {
+          "content": [
+            {
+              "tag": "div",
+              "content": [
+                {
+                  "properties": {
+                    "content": "Page title"
+                  },
+                  "tag": "bk-title"
                 },
-                "tag": "bk-title"
-              },
-              {
-                "tag": "bk-refresh-button",
-                "attributes": {
-                  "style": "flex-grow: 1; margin-left: 14px;"
-                }
-              },
-              {
-                "properties": {
-                  "placeholder": "Search..."
-                },
-                "tag": "bk-search-bar"
-              },
-              {
-                "properties": {
-                  "iconId": "DownloadOutlined",
-                  "content": "Export",
-                  "clickConfig": {
-                    "type": "event",
-                    "actionConfig": {
-                      "label": "export-data",
-                      "payload": {}
-                    }
+                {
+                  "tag": "bk-refresh-button",
+                  "attributes": {
+                    "style": "flex-grow: 1; margin-left: 14px;"
                   }
                 },
-                "tag": "bk-button"
-              },
-              {
-                "tag": "bk-add-new-button"
-              },
-              {
-                "properties": {
-                  "content": "",
-                  "clickConfig": {
-                    "type": "event",
-                    "actionConfig": {
-                      "label": "filter",
-                      "payload": {}
+                {
+                  "properties": {
+                    "placeholder": "Search..."
+                  },
+                  "tag": "bk-search-bar"
+                },
+                {
+                  "properties": {
+                    "iconId": "DownloadOutlined",
+                    "content": "Export",
+                    "clickConfig": {
+                      "type": "event",
+                      "actionConfig": {
+                        "label": "export-data",
+                        "payload": {}
+                      }
                     }
                   },
-                  "type": "outlined",
-                  "iconId": "FunnelPlotOutlined"
+                  "tag": "bk-button"
                 },
-                "tag": "bk-button"
-              }
-            ],
-            "attributes": {
-              "style": "display: flex; flex-direction: row; gap: 10px; padding: 0 20px;"
-            }
-          },
-          {
-            "properties": {
-              "tabs": [
                 {
-                  "key": "tab-1",
-                  "title": "Tab 1"
+                  "tag": "bk-add-new-button"
+                },
+                {
+                  "properties": {
+                    "content": "",
+                    "clickConfig": {
+                      "type": "event",
+                      "actionConfig": {
+                        "label": "filter",
+                        "payload": {}
+                      }
+                    },
+                    "type": "outlined",
+                    "iconId": "FunnelPlotOutlined"
+                  },
+                  "tag": "bk-button"
                 }
-              ]
+              ],
+              "attributes": {
+                "style": "display: flex; flex-direction: row; gap: 10px; padding: 0 20px;"
+              }
             },
-            "tag": "bk-tabs",
-            "attributes": {
-              "style": "width: 100%;"
+            {
+              "properties": {
+                "tabs": [
+                  {
+                    "key": "tab-1",
+                    "title": "Tab 1"
+                  }
+                ]
+              },
+              "tag": "bk-tabs",
+              "attributes": {
+                "style": "width: 100%;"
+              }
             }
+          ],
+          "tag": "header",
+          "attributes": {
+            "style": "display: flex; flex-direction: column; padding-top: 10px;"
           }
-        ],
-        "tag": "header",
-        "attributes": {
-          "style": "display: flex; flex-direction: column; padding-top: 10px;"
-        }
-      },
+        },
 
-      {
-        "content": [
-          {
-            "properties": {
-              "dataSchema": {
-                "$ref": "#/definitions/dataSchema"
-              },
-              "maxLines": 10
-            },
-            "tag": "bk-table"
-          },
-          {
-            "properties": {
-              "requireConfirm": {
-                "onClose": true,
-                "onSave": true
-              },
-              "dataSchema": {
-                "$ref": "#/definitions/dataSchema"
-              },
-              "width": "70vw"
-            },
-            "tag": "bk-form-modal"
-          },
-          {
-            "properties": {
-              "rootElementSelectors": "main.micro-lc-layout-content",
-              "successEventMap": {
-                "create-data": {
-                  "title": "Success",
-                  "content": "Data successfully created",
-                  "type": "success"
+        {
+          "content": [
+            {
+              "properties": {
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
                 },
-                "update-data": {
-                  "title": "Success",
-                  "content": "Data successfully updated",
-                  "type": "success"
+                "maxLines": 10
+              },
+              "tag": "bk-table"
+            },
+            {
+              "properties": {
+                "requireConfirm": {
+                  "onClose": true,
+                  "onSave": true
                 },
-                "delete-data": {
-                  "title": "Success",
-                  "content": "Data successfully deleted",
-                  "type": "success"
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
+                },
+                "width": "70vw"
+              },
+              "tag": "bk-form-modal"
+            },
+            {
+              "properties": {
+                "rootElementSelectors": "main.micro-lc-layout-content",
+                "successEventMap": {
+                  "create-data": {
+                    "title": "Success",
+                    "content": "Data successfully created",
+                    "type": "success"
+                  },
+                  "update-data": {
+                    "title": "Success",
+                    "content": "Data successfully updated",
+                    "type": "success"
+                  },
+                  "delete-data": {
+                    "title": "Success",
+                    "content": "Data successfully deleted",
+                    "type": "success"
+                  }
+                },
+                "errorEventMap": {
+                  "create-data": {
+                    "title": "Error",
+                    "content": "An error occurred during order creation",
+                    "type": "error"
+                  },
+                  "update-data": {
+                    "title": "Error",
+                    "content": "An error occurred during order updated",
+                    "type": "error"
+                  },
+                  "delete-data": {
+                    "title": "Error",
+                    "content": "An error occurred during order deletion",
+                    "type": "error"
+                  }
                 }
               },
-              "errorEventMap": {
-                "create-data": {
-                  "title": "Error",
-                  "content": "An error occurred during order creation",
-                  "type": "error"
+              "tag": "bk-notifications",
+              "attributes": {}
+            }
+          ],
+          "tag": "main",
+          "attributes": {
+            "style": "flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;"
+          }
+        },
+
+        {
+          "content": [
+            {
+              "properties": {
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
                 },
-                "update-data": {
-                  "title": "Error",
-                  "content": "An error occurred during order updated",
-                  "type": "error"
-                },
-                "delete-data": {
-                  "title": "Error",
-                  "content": "An error occurred during order deletion",
-                  "type": "error"
+                "width": "40vw"
+              },
+              "tag": "bk-filter-drawer"
+            }
+          ],
+          "tag": "aside"
+        },
+
+        {
+          "content": [
+            {
+              "tag": "bk-bulk-delete"
+            },
+            {
+              "tag": "bk-bulk-actions",
+              "properties": {
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
                 }
               }
             },
-            "tag": "bk-notifications",
-            "attributes": {}
-          }
-        ],
-        "tag": "main",
-        "attributes": {
-          "style": "flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;"
-        }
-      },
-
-      {
-        "content": [
-          {
-            "properties": {
-              "dataSchema": {
-                "$ref": "#/definitions/dataSchema"
-              },
-              "width": "40vw"
+            {
+              "tag": "bk-footer",
+              "attributes": {
+                "style": "flex-grow: 1; display: flex; justify-content: end; align-items: center;"
+              }
             },
-            "tag": "bk-filter-drawer"
-          }
-        ],
-        "tag": "aside"
-      },
-
-      {
-        "content": [
-          {
-            "tag": "bk-bulk-delete"
-          },
-          {
-            "tag": "bk-bulk-actions",
-            "properties": {
-              "dataSchema": {
-                "$ref": "#/definitions/dataSchema"
+            {
+              "tag": "bk-pagination",
+              "properties": {
+                "pageSize": 10
               }
             }
-          },
-          {
-            "tag": "bk-footer",
-            "attributes": {
-              "style": "flex-grow: 1; display: flex; justify-content: end; align-items: center;"
-            }
-          },
-          {
-            "tag": "bk-pagination",
-            "properties": {
-              "pageSize": 10
-            }
+          ],
+          "tag": "footer",
+          "attributes": {
+            "style": "display: flex; flex-direction: row; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10"
           }
-        ],
-        "tag": "footer",
-        "attributes": {
-          "style": "display: flex; flex-direction: row; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10"
-        }
-      },
+        },
 
-      {
-        "properties": {
-          "dataSchema": {
-            "$ref": "#/definitions/dataSchema"
+        {
+          "properties": {
+            "dataSchema": {
+              "$ref": "#/definitions/dataSchema"
+            },
+            "filters": []
           },
-          "filters": []
+          "tag": "bk-filters-manager"
         },
-        "tag": "bk-filters-manager"
-      },
-      {
-        "properties": {
-          "basePath": "/v2/change-me",
-          "dataSchema": {
-            "$ref": "#/definitions/dataSchema"
-          }
+        {
+          "properties": {
+            "basePath": "/v2/change-me",
+            "dataSchema": {
+              "$ref": "#/definitions/dataSchema"
+            }
+          },
+          "tag": "bk-crud-client"
         },
-        "tag": "bk-crud-client"
-      },
-      {
-        "properties": {
-          "basePath": "/v2/change-me/export",
-          "streamSaverIFrameSrc": "/back-kit/{{BACK_KIT_VERSION}}/export-service-worker.html",
-          "dataSchema": {
-            "$ref": "#/definitions/dataSchema"
-          }
-        },
-        "tag": "bk-export"
+        {
+          "properties": {
+            "basePath": "/v2/change-me/export",
+            "streamSaverIFrameSrc": "/back-kit/{{BACK_KIT_VERSION}}/export-service-worker.html",
+            "dataSchema": {
+              "$ref": "#/definitions/dataSchema"
+            }
+          },
+          "tag": "bk-export"
+        }
+      ],
+      "tag": "div",
+      "attributes": {
+        "style": "width: 100%; height: 100%; display: flex; flex-direction: column; position: relative; overflow-x: hidden;"
       }
-    ],
-    "tag": "div",
-    "attributes": {
-      "style": "width: 100%; height: 100%; display: flex; flex-direction: column; position: relative; overflow-x: hidden;"
-    }
-  },
-  "sources": [
-    "/back-kit/{{BACK_KIT_VERSION}}/bk-web-components.esm.js"
-  ]
+    },
+    "sources": ["/back-kit/{{BACK_KIT_VERSION}}/bk-web-components.esm.js"]
+  }
 }

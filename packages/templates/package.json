@@ -8,6 +8,9 @@
   "exports": {
     "./page-with-table.json": {
       "default": "./page-with-table.json"
+    },
+    "./blank.json": {
+      "default": "./blank.json"
     }
   },
   "engines": {
