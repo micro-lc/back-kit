@@ -27,7 +27,13 @@
                 {
                   "tag": "bk-refresh-button",
                   "attributes": {
-                    "style": "flex-grow: 1; margin-left: 14px;"
+                    "style": "margin-left: 14px;"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "attributes": {
+                    "style": "flex-grow: 1;"
                   }
                 },
                 {
