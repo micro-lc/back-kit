@@ -96,7 +96,7 @@
           ],
           "tag": "header",
           "attributes": {
-            "style": "display: flex; flex-direction: column; padding-top: 10px;"
+            "style": "display: flex; flex-direction: column; padding-top: 10px; background-color: white;"
           }
         },
 
