@@ -10,6 +10,16 @@ export type LocalizedText =
   | {
       [k: string]: string
     }
+export type Method = "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
+export type Fetch = {
+  url: {
+    origin?: string
+    pathname: string
+  }
+  method?: Method
+  handler?: (info: URL, init?: RequestInit, context: Record<string, unknown>) => Promise<Response>
+  [k: string]: unknown
+}[]
 /**
  * @minItems 1
  */
@@ -27,21 +37,6 @@ export interface Manifest {
   properties?: {
     [k: string]: MiaSchema
   }
-  [k: string]: unknown
-}
-export interface Fetch {
-  context?: string[]
-  routes?: {
-    url: {
-      origin?: string
-      pathname: string
-      search?: string
-      [k: string]: unknown
-    }
-    method: "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
-    handler?: (url: URL, context: Record<string, unknown>) => Promise<Response>
-    [k: string]: unknown
-  }[]
   [k: string]: unknown
 }
 export interface MiaSchema {

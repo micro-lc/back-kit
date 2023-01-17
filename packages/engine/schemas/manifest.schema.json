@@ -2,42 +2,40 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/manifest.schema.json#",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Manifest",
-  "type": "object",
   "definitions": {
+    "method": {
+      "title": "Method",
+      "type": "string",
+      "default": "GET",
+      "enum": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"]
+    },
     "fetch": {
-      "type": "object",
-      "properties": {
-        "context": {
-          "type": "array",
-          "items": {"type": "string"}
-        },
-        "routes": {
-          "type": "array",
-          "items": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
             "type": "object",
             "properties": {
-              "url": {
-                "type": "object",
-                "properties": {
-                  "origin": {"type": "string"},
-                  "pathname": {"type": "string"},
-                  "search": {"type": "string", "default": ""}
-                },
-                "required": ["pathname"]
-              },
-              "method": {"type": "string", "enum": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"]},
-              "handler": {
-                "type": "object",
-                "instanceOf": "Function",
-                "tsType": "(url: URL, context: Record<string, unknown>) => Promise<Response>"
-              }
+              "origin": { "type": "string" },
+              "pathname": { "type": "string" }
             },
-            "required": ["url", "method"]
+            "additionalProperties": false,
+            "required": ["pathname"]
+          },
+          "method": { "$ref": "#/definitions/method" },
+          "handler": {
+            "type": "object",
+            "instanceOf": "Function",
+            "tsType": "(info: URL, init?: RequestInit, context: Record<string, unknown>) => Promise<Response>"
           }
-        }
+        },
+        "required": ["url"]
       }
     }
   },
+  "type": "object",
   "properties": {
     "label": {
       "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
