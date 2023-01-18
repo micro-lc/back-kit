@@ -16,28 +16,14 @@ export type LocalizedText =
     }
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "method".
+ * via the `definition` "fetchFactory".
  */
-export type Method = "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
+export type FetchFactory = (context: Record<string, unknown>) => Fetch
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "handlerWithContext".
+ * via the `definition` "storageFactory".
  */
-export type FetchHandlerWithContext = (
-  info: URL,
-  init?: RequestInit | undefined,
-  context: Record<string, unknown>
-) => Promise<Response>
-/**
- * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "fetchWithContext".
- */
-export type FetchWithContext = {
-  url: FetchUrl
-  method?: Method
-  handler?: FetchHandlerWithContext
-  [k: string]: unknown
-}[]
+export type StorageFactory = (context: Record<string, unknown>) => Storage
 /**
  * @minItems 1
  *
@@ -52,9 +38,14 @@ export type SchemaArray = [MiaSchema, ...MiaSchema[]]
 export type StringArray = string[]
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "method".
+ */
+export type Method = "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
  * via the `definition` "handler".
  */
-export type FetchHandler = (info: URL, init?: RequestInit | undefined) => Promise<Response>
+export type ReducedFetchHandler = (info: URL, init?: RequestInit | undefined) => Promise<Response>
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema
  * via the `definition` "fetch".
@@ -62,7 +53,7 @@ export type FetchHandler = (info: URL, init?: RequestInit | undefined) => Promis
 export type Fetch = {
   url: FetchUrl
   method?: Method
-  handler?: FetchHandler
+  handler?: ReducedFetchHandler
   [k: string]: unknown
 }[]
 
@@ -71,21 +62,15 @@ export interface Manifest {
   description?: LocalizedText
   type?: "layout" | "connector" | "adapter"
   mocks?: {
-    fetch?: FetchWithContext | ((context: Record<string, unknown>) => Fetch)
+    fetch?: FetchFactory
+    localStorage?: StorageFactory
+    sessionStorage?: StorageFactory
     [k: string]: unknown
   }
   properties?: {
     [k: string]: MiaSchema
   }
   [k: string]: unknown
-}
-/**
- * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "url".
- */
-export interface FetchUrl {
-  origin?: string
-  pathname: string
 }
 export interface MiaSchema {
   $id?: string
@@ -197,4 +182,12 @@ export interface MiaConfiguration {
   attribute?: boolean | string
   "schema-hint"?: "localized-text" | "dynamic-icon" | "mia/endpoints/crud"
   "shared-key"?: "back-kit/data-schema" | string
+}
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "url".
+ */
+export interface FetchUrl {
+  origin?: string
+  pathname: string
 }

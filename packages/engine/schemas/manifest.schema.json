@@ -20,16 +20,10 @@
       "required": ["pathname"]
     },
     "handler": {
-      "title": "FetchHandler",
+      "title": "ReducedFetchHandler",
       "type": "object",
       "instanceOf": "Function",
       "tsType": "(info: URL, init?: RequestInit | undefined) => Promise<Response>"
-    },
-    "handlerWithContext": {
-      "title": "FetchHandlerWithContext",
-      "type": "object",
-      "instanceOf": "Function",
-      "tsType": "(info: URL, init?: RequestInit | undefined, context: Record<string, unknown>) => Promise<Response>"
     },
     "fetch": {
       "title": "Fetch",
@@ -45,19 +39,17 @@
         "required": ["url"]
       }
     },
-    "fetchWithContext": {
-      "title": "FetchWithContext",
-      "type": "array",
-      "default": [],
-      "items": {
-        "type": "object",
-        "properties": {
-          "url": { "$ref": "#/definitions/url" },
-          "method": { "$ref": "#/definitions/method" },
-          "handler": { "$ref": "#/definitions/handlerWithContext" }
-        },
-        "required": ["url"]
-      }
+    "fetchFactory": {
+      "title": "FetchFactory",
+      "type": "object",
+      "instanceOf": "Function",
+      "tsType": "((context: Record<string, unknown>) => Fetch)"
+    },
+    "storageFactory": {
+      "title": "StorageFactory",
+      "type": "object",
+      "instanceOf": "Function",
+      "tsType": "(context: Record<string, unknown>) => Storage"
     }
   },
   "type": "object",
@@ -75,14 +67,13 @@
       "type": "object",
       "properties": {
         "fetch": {
-          "oneOf": [
-            { "$ref": "#/definitions/fetchWithContext" },
-            {
-              "type": "object",
-              "instanceOf": "Function",
-              "tsType": "((context: Record<string, unknown>) => Fetch)"
-            }
-          ]
+          "$ref": "#/definitions/fetchFactory"
+        },
+        "localStorage": {
+          "$ref": "#/definitions/storageFactory"
+        },
+        "sessionStorage": {
+          "$ref": "#/definitions/storageFactory"
         }
       }
     },
