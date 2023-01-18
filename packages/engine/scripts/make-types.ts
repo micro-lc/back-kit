@@ -32,6 +32,7 @@ const main = async () => {
       },
       bannerComment,
       style: { semi: false },
+      unreachableDefinitions: true,
     }
 
     const compiledTypes = await compileFromFile(inputFilePath, compileProps)

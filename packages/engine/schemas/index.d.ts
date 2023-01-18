@@ -5,39 +5,87 @@
  * and run `yarn make-types` to regenerate this file.
  */
 
+/**
+ * This interface was referenced by `MiaSchema`'s JSON-Schema
+ * via the `definition` "localized-text".
+ */
 export type LocalizedText =
   | string
   | {
       [k: string]: string
     }
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "method".
+ */
 export type Method = "GET" | "POST" | "PATCH" | "PUT" | "DELETE" | "OPTIONS" | "HEAD"
-export type Fetch = {
-  url: {
-    origin?: string
-    pathname: string
-  }
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "handlerWithContext".
+ */
+export type FetchHandlerWithContext = (
+  info: URL,
+  init?: RequestInit | undefined,
+  context: Record<string, unknown>
+) => Promise<Response>
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "fetchWithContext".
+ */
+export type FetchWithContext = {
+  url: FetchUrl
   method?: Method
-  handler?: (info: URL, init?: RequestInit, context: Record<string, unknown>) => Promise<Response>
+  handler?: FetchHandlerWithContext
   [k: string]: unknown
 }[]
 /**
  * @minItems 1
+ *
+ * This interface was referenced by `MiaSchema`'s JSON-Schema
+ * via the `definition` "schemaArray".
  */
 export type SchemaArray = [MiaSchema, ...MiaSchema[]]
+/**
+ * This interface was referenced by `MiaSchema`'s JSON-Schema
+ * via the `definition` "stringArray".
+ */
 export type StringArray = string[]
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "handler".
+ */
+export type FetchHandler = (info: URL, init?: RequestInit | undefined) => Promise<Response>
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "fetch".
+ */
+export type Fetch = {
+  url: FetchUrl
+  method?: Method
+  handler?: FetchHandler
+  [k: string]: unknown
+}[]
 
 export interface Manifest {
   label?: LocalizedText
   description?: LocalizedText
   type?: "layout" | "connector" | "adapter"
   mocks?: {
-    fetch?: Fetch
+    fetch?: FetchWithContext | ((context: Record<string, unknown>) => Fetch)
     [k: string]: unknown
   }
   properties?: {
     [k: string]: MiaSchema
   }
   [k: string]: unknown
+}
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "url".
+ */
+export interface FetchUrl {
+  origin?: string
+  pathname: string
 }
 export interface MiaSchema {
   $id?: string
@@ -64,16 +112,40 @@ export interface MiaSchema {
   exclusiveMaximum?: number
   minimum?: number
   exclusiveMinimum?: number
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeInteger".
+   */
   maxLength?: number
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeIntegerDefault0".
+   */
   minLength?: number
   pattern?: string
   additionalItems?: MiaSchema
   items?: MiaSchema | SchemaArray
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeInteger".
+   */
   maxItems?: number
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeIntegerDefault0".
+   */
   minItems?: number
   uniqueItems?: boolean
   contains?: MiaSchema
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeInteger".
+   */
   maxProperties?: number
+  /**
+   * This interface was referenced by `MiaSchema`'s JSON-Schema
+   * via the `definition` "nonNegativeIntegerDefault0".
+   */
   minProperties?: number
   properties?: {
     [k: string]: MiaSchema
@@ -105,6 +177,10 @@ export interface MiaSchema {
   __mia_configuration?: MiaConfiguration
   [k: string]: unknown
 }
+/**
+ * This interface was referenced by `MiaSchema`'s JSON-Schema
+ * via the `definition` "__mia_configuration".
+ */
 export interface MiaConfiguration {
   deprecated?:
     | boolean

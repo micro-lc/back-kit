@@ -9,27 +9,52 @@
       "default": "GET",
       "enum": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"]
     },
+    "url": {
+      "title": "FetchUrl",
+      "type": "object",
+      "properties": {
+        "origin": { "type": "string" },
+        "pathname": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "required": ["pathname"]
+    },
+    "handler": {
+      "title": "FetchHandler",
+      "type": "object",
+      "instanceOf": "Function",
+      "tsType": "(info: URL, init?: RequestInit | undefined) => Promise<Response>"
+    },
+    "handlerWithContext": {
+      "title": "FetchHandlerWithContext",
+      "type": "object",
+      "instanceOf": "Function",
+      "tsType": "(info: URL, init?: RequestInit | undefined, context: Record<string, unknown>) => Promise<Response>"
+    },
     "fetch": {
+      "title": "Fetch",
       "type": "array",
       "default": [],
       "items": {
         "type": "object",
         "properties": {
-          "url": {
-            "type": "object",
-            "properties": {
-              "origin": { "type": "string" },
-              "pathname": { "type": "string" }
-            },
-            "additionalProperties": false,
-            "required": ["pathname"]
-          },
+          "url": { "$ref": "#/definitions/url" },
           "method": { "$ref": "#/definitions/method" },
-          "handler": {
-            "type": "object",
-            "instanceOf": "Function",
-            "tsType": "(info: URL, init?: RequestInit, context: Record<string, unknown>) => Promise<Response>"
-          }
+          "handler": { "$ref": "#/definitions/handler" }
+        },
+        "required": ["url"]
+      }
+    },
+    "fetchWithContext": {
+      "title": "FetchWithContext",
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "$ref": "#/definitions/url" },
+          "method": { "$ref": "#/definitions/method" },
+          "handler": { "$ref": "#/definitions/handlerWithContext" }
         },
         "required": ["url"]
       }
@@ -49,7 +74,16 @@
     "mocks": {
       "type": "object",
       "properties": {
-        "fetch": { "$ref": "#/definitions/fetch" }
+        "fetch": {
+          "oneOf": [
+            { "$ref": "#/definitions/fetchWithContext" },
+            {
+              "type": "object",
+              "instanceOf": "Function",
+              "tsType": "((context: Record<string, unknown>) => Fetch)"
+            }
+          ]
+        }
       }
     },
     "properties": {
