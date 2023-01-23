@@ -125,6 +125,9 @@
               "tag": "bk-form-modal"
             },
             {
+              "tag": "bk-confirmation-modal"
+            },
+            {
               "properties": {
                 "rootElementSelectors": "main.micro-lc-layout-content",
                 "successEventMap": {
@@ -246,6 +249,15 @@
             }
           },
           "tag": "bk-export"
+        },
+        {
+          "properties": {
+            "basePath": "/v2/file",
+          },
+          "tag": "bk-file-client"
+        },
+        {
+          "tag": "bk-file-manager"
         }
       ],
       "tag": "div",
