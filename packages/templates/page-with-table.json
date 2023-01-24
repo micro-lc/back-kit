@@ -8,7 +8,22 @@
     "definitions": {
       "dataSchema": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "_id": {
+            "type": "string",
+            "label": "ID"
+          },
+          "__STATE__": {
+            "type": "string",
+            "label": "State",
+            "enum": [
+              "PUBLIC",
+              "DRAFT",
+              "TRASH",
+              "DELETED"
+            ]
+          }
+        }
       }
     },
     "content": {
