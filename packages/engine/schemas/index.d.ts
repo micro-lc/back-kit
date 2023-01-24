@@ -180,7 +180,7 @@ export interface MiaConfiguration {
   oneOfDefault?: number
   priority?: "high" | "medium" | "low"
   attribute?: boolean | string
-  "schema-hint"?: "localized-text" | "dynamic-icon" | "mia/endpoints/crud"
+  "schema-hint"?: "localized-text" | "dynamic-icon" | "on-off-toggle" | "mia/endpoints/crud"
   "shared-key"?: "back-kit/data-schema" | string
 }
 /**

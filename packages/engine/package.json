@@ -1,6 +1,6 @@
 {
   "name": "@micro-lc/back-kit-engine",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "files": [
     "dist",
     "**/package.json",

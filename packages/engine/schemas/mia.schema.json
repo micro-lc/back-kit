@@ -80,6 +80,7 @@
           "enum": [
             "localized-text",
             "dynamic-icon",
+            "on-off-toggle",
             "mia/endpoints/crud"
           ]
         },
