@@ -16,12 +16,7 @@
           "__STATE__": {
             "type": "string",
             "label": "State",
-            "enum": [
-              "PUBLIC",
-              "DRAFT",
-              "TRASH",
-              "DELETED"
-            ]
+            "enum": ["PUBLIC", "DRAFT", "TRASH", "DELETED"]
           }
         }
       }
@@ -95,18 +90,35 @@
               }
             },
             {
-              "properties": {
-                "tabs": [
-                  {
-                    "key": "tab-1",
-                    "title": "Tab 1"
-                  }
-                ]
-              },
-              "tag": "bk-tabs",
+              "tag": "div",
               "attributes": {
-                "style": "width: 100%;"
-              }
+                "style": "width: 100%; display: flex; justify-content: space-between;"
+              },
+              "content": [
+                {
+                  "attributes": {
+                    "style": "flex-grow: 1;"
+                  },
+                  "properties": {
+                    "tabs": [
+                      {
+                        "key": "tab-1",
+                        "title": "Tab 1"
+                      }
+                    ]
+                  },
+                  "tag": "bk-tabs"
+                },
+                {
+                  "properties": {
+                    "dataSchema": {
+                      "$ref": "#/definitions/dataSchema"
+                    },
+                    "filters": []
+                  },
+                  "tag": "bk-filters-manager"
+                }
+              ]
             }
           ],
           "tag": "header",
@@ -236,16 +248,6 @@
             "style": "display: flex; flex-direction: row; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10"
           }
         },
-
-        {
-          "properties": {
-            "dataSchema": {
-              "$ref": "#/definitions/dataSchema"
-            },
-            "filters": []
-          },
-          "tag": "bk-filters-manager"
-        },
         {
           "properties": {
             "basePath": "/v2/change-me",
@@ -280,6 +282,8 @@
         "style": "width: 100%; height: 100%; display: flex; flex-direction: column; position: relative;"
       }
     },
-    "sources": ["https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"]
+    "sources": [
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
+    ]
   }
 }
