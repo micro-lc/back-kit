@@ -252,7 +252,7 @@
         },
         {
           "properties": {
-            "basePath": "/v2/file",
+            "basePath": "/v2/file"
           },
           "tag": "bk-file-client"
         },
