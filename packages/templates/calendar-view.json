@@ -1,8 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/page-with-table.json#",
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/blank.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Page With Table"
+    "label": "Calendar view"
   },
   "template": {
     "definitions": {
@@ -10,15 +10,44 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string",
-            "label": "ID"
+            "type": "string"
           },
           "__STATE__": {
             "type": "string",
-            "label": "State",
-            "enum": ["PUBLIC", "DRAFT", "TRASH", "DELETED"]
+            "default": "PUBLIC",
+            "enum": [
+              "PUBLIC",
+              "DRAFT",
+              "TRASH",
+              "DELETED"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "label": "Title"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "label": "Start date",
+            "dateOptions": {
+              "displayFormat": "DD/MM/YYYY, HH:mm"
+            }
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "label": "End date",
+            "dateOptions": {
+              "displayFormat": "DD/MM/YYYY, HH:mm"
+            }
           }
-        }
+        },
+        "required": [
+          "title",
+          "startDate",
+          "endDate"
+        ]
       }
     },
     "content": {
@@ -129,7 +158,6 @@
             "style": "display: flex; flex-direction: column; padding-top: 10px; background-color: white;"
           }
         },
-
         {
           "content": [
             {
@@ -137,9 +165,17 @@
                 "dataSchema": {
                   "$ref": "#/definitions/dataSchema"
                 },
-                "maxLines": 10
+                "view": "month",
+                "height": "70vh",
+                "filtersName": {
+                  "start": "Start",
+                  "end": "End"
+                }
               },
-              "tag": "bk-table"
+              "tag": "bk-calendar",
+              "attributes": {
+                "style": "background-color: white; padding: 1em; border-radius: 8px; display:flex; flex-direction: column; flex-grow: 1"
+              }
             },
             {
               "properties": {
@@ -204,7 +240,6 @@
             "style": "flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;"
           }
         },
-
         {
           "content": [
             {
@@ -219,7 +254,6 @@
           ],
           "tag": "aside"
         },
-
         {
           "content": [
             {

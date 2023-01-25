@@ -6,11 +6,20 @@
     "package.json"
   ],
   "exports": {
+    "./blank.json": {
+      "default": "./blank.json"
+    },
     "./page-with-table.json": {
       "default": "./page-with-table.json"
     },
-    "./blank.json": {
-      "default": "./blank.json"
+    "./calendar-view.json": {
+      "default": "./calendar-view.json"
+    },
+    "./gallery.json": {
+      "default": "./gallery.json"
+    },
+    "./details-page.json": {
+      "default": "./details-page.json"
     }
   },
   "engines": {

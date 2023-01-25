@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/blank.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Blank page"
+    "label": "Picture gallery"
   },
   "template": {
     "content": ""
