@@ -134,7 +134,7 @@
         }
       ]
     },
-    "default": true,
+    "default": {},
     "readOnly": {
       "type": "boolean",
       "default": false
@@ -171,7 +171,7 @@
     },
     "additionalItems": { "$ref": "#" },
     "items": {
-      "default": true,
+      "default": {},
       "anyOf": [
         { "$ref": "#" },
         { "$ref": "#/definitions/schemaArray" }
@@ -209,10 +209,10 @@
       }
     },
     "propertyNames": { "$ref": "#" },
-    "const": true,
+    "const": {},
     "enum": {
       "type": "array",
-      "items": true,
+      "items": {},
       "minItems": 1,
       "uniqueItems": true
     },

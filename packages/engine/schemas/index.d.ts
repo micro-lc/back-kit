@@ -88,7 +88,7 @@ export interface MiaSchema {
         "array" | "boolean" | "integer" | "null" | "number" | "object" | "string",
         ...("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")[]
       ]
-  default?: true
+  default?: unknown
   readOnly?: boolean
   writeOnly?: boolean
   examples?: true[]
@@ -144,11 +144,11 @@ export interface MiaSchema {
     [k: string]: MiaSchema | StringArray
   }
   propertyNames?: MiaSchema
-  const?: true
+  const?: unknown
   /**
    * @minItems 1
    */
-  enum?: [true, ...unknown[]]
+  enum?: [unknown, ...unknown[]]
   format?: string
   contentMediaType?: string
   contentEncoding?: string
