@@ -286,7 +286,7 @@
       }
     },
     "sources": [
-      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@1.4.0-rc1/dist/bk-web-components.esm.js"
     ]
   }
 }
