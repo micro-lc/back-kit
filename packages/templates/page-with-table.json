@@ -266,6 +266,7 @@
             "style": "display: flex; flex-direction: row; flex-wrap: wrap; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10"
           }
         },
+
         {
           "properties": {
             "basePath": "/v2/change-me",

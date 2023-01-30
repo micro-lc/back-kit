@@ -1,10 +1,111 @@
 {
-  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/blank.json#",
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/details-page.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
     "label": "Details page"
   },
   "template": {
-    "content": ""
+    "definitions": {
+      "dataSchema": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "label": "ID"
+          },
+          "__STATE__": {
+            "type": "string",
+            "label": "State",
+            "enum": ["PUBLIC", "DRAFT", "TRASH", "DELETED"]
+          }
+        }
+      }
+    },
+    "content": {
+      "content": [
+        {
+          "content": [
+            {
+              "properties": {
+                "content": "",
+                "type": "link",
+                "iconId": "LeftOutlined",
+                "clickConfig": {
+                  "type": "go-back"
+                }
+              },
+              "tag": "bk-button"
+            },
+            {
+              "properties": {
+                "content": "Page title"
+              },
+              "tag": "bk-title"
+            }
+          ],
+          "tag": "header",
+          "attributes": {
+            "style": "display: flex; flex-direction: row; align-items: center; gap: 10px; padding: 10px 20px; background-color: white;"
+          }
+        },
+
+        {
+          "content": [
+            {
+              "properties": {
+                "cardSchema": {
+                  "header": {
+                    "icon": "InfoCircleOutlined",
+                    "title": "Details"
+                  },
+                  "main": {
+                    "dataSchema": {
+                      "$ref": "#/definitions/dataSchema"
+                    }
+                  }
+                }
+              },
+              "tag": "bk-card"
+            }
+          ],
+          "tag": "main",
+          "attributes": {
+            "style": "flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;"
+          }
+        },
+
+        {
+          "tag": "bk-state-adapter"
+        },
+        {
+          "tag": "bk-url-parameters"
+        },
+        {
+          "properties": {
+            "basePath": "/v2/change-me",
+            "dataSchema": {
+              "$ref": "#/definitions/dataSchema"
+            }
+          },
+          "tag": "bk-crud-client"
+        },
+        {
+          "properties": {
+            "basePath": "/v2/file"
+          },
+          "tag": "bk-file-client"
+        },
+        {
+          "tag": "bk-file-manager"
+        }
+      ],
+      "tag": "div",
+      "attributes": {
+        "style": "width: 100%; height: 100%; display: flex; flex-direction: column; position: relative;"
+      }
+    },
+    "sources": [
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
+    ]
   }
 }
