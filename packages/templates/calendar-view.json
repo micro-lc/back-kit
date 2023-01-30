@@ -158,6 +158,7 @@
             "style": "display: flex; flex-direction: column; padding-top: 10px; background-color: white;"
           }
         },
+
         {
           "content": [
             {
@@ -176,19 +177,6 @@
               "attributes": {
                 "style": "background-color: white; padding: 1em; border-radius: 8px; display:flex; flex-direction: column; flex-grow: 1"
               }
-            },
-            {
-              "properties": {
-                "requireConfirm": {
-                  "onClose": true,
-                  "onSave": true
-                },
-                "dataSchema": {
-                  "$ref": "#/definitions/dataSchema"
-                },
-                "width": "70vw"
-              },
-              "tag": "bk-form-modal"
             },
             {
               "tag": "bk-confirmation-modal"
@@ -240,8 +228,36 @@
             "style": "flex-grow: 1; background-color: #f0f2f5; padding: 20px; overflow-y: auto;"
           }
         },
+
         {
           "content": [
+            {
+              "properties": {
+                "requireConfirm": {
+                  "onClose": true,
+                  "onSave": true
+                },
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
+                },
+                "width": "60vw",
+                "dataCustomActions": [
+                  {
+                    "hiddenOnInsert": true,
+                    "label": "Delete",
+                    "icon": "far fa-trash-alt",
+                    "kind": "event",
+                    "content": "delete-data",
+                    "meta": {
+                      "actionId": "delete-data"
+                    },
+                    "requireConfirm": true,
+                    "closeOnClick": true
+                  }
+                ]
+              },
+              "tag": "bk-form-drawer"
+            },
             {
               "properties": {
                 "dataSchema": {
@@ -254,6 +270,7 @@
           ],
           "tag": "aside"
         },
+
         {
           "content": [
             {
@@ -285,6 +302,7 @@
             "style": "display: flex; flex-direction: row; flex-wrap: wrap; padding: 10px 20px; background-color: white; gap: 10px; position: sticky; bottom: 0; z-index: 10"
           }
         },
+
         {
           "properties": {
             "basePath": "/v2/change-me",
@@ -320,7 +338,7 @@
       }
     },
     "sources": [
-      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@1.4.0-rc1/dist/bk-web-components.esm.js"
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
     ]
   }
 }

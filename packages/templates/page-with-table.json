@@ -137,7 +137,22 @@
                 "dataSchema": {
                   "$ref": "#/definitions/dataSchema"
                 },
-                "maxLines": 10
+                "maxLines": 10,
+                "rowActions": {
+                  "kind": "icons",
+                  "actions": [
+                    {
+                      "label": "Delete",
+                      "icon": "fas fa-trash",
+                      "kind": "event",
+                      "content": "delete-data",
+                      "meta": {
+                        "actionId": "delete-data"
+                      },
+                      "requireConfirm": true
+                    }
+                  ]
+                }
               },
               "tag": "bk-table"
             },
@@ -286,7 +301,7 @@
       }
     },
     "sources": [
-      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@1.4.0-rc1/dist/bk-web-components.esm.js"
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
     ]
   }
 }
