@@ -2,7 +2,10 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/details-page.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Details page"
+    "label": {
+      "en": "Details page",
+      "it": "Pagina di dettaglio"
+    }
   },
   "template": {
     "definitions": {

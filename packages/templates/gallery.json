@@ -2,7 +2,10 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/gallery.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Picture gallery"
+    "label": {
+      "en": "Picture gallery",
+      "it": "Galleria di immagini"
+    }
   },
   "template": {
     "definitions": {

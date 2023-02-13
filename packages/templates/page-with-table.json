@@ -2,7 +2,10 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/page-with-table.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Page With Table"
+    "label": {
+      "en": "Page With Table",
+      "it": "Pagina con tabella"
+    }
   },
   "template": {
     "definitions": {

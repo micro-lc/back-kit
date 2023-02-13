@@ -2,7 +2,10 @@
   "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/calendar-view.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": "Calendar view"
+    "label": {
+      "en": "Calendar view",
+      "it": "Vista a calendario"
+    }
   },
   "template": {
     "definitions": {
