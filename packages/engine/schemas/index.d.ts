@@ -180,7 +180,7 @@ export interface MiaConfiguration {
   oneOfDefault?: number
   priority?: "high" | "medium" | "low"
   attribute?: boolean | string
-  "schema-hint"?: "localized-text" | "dynamic-icon" | "on-off-toggle" | "mia/endpoints/crud"
+  "schema-hint"?: "localized-text" | "dynamic-icon" | "on-off-toggle" | "mia/endpoints/crud" | "micro-lc/applications"
   "shared-key"?: "back-kit/data-schema" | string
   enumLabels?: {
     [k: string]: LocalizedText
