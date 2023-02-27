@@ -135,7 +135,7 @@ export interface MiaSchema {
   properties?: {
     [k: string]: MiaSchema
   }
-  additionalProperties?: MiaSchema
+  additionalProperties?: boolean | MiaSchema
   patternProperties?: {
     [k: string]: MiaSchema
   }
@@ -182,6 +182,9 @@ export interface MiaConfiguration {
   attribute?: boolean | string
   "schema-hint"?: "localized-text" | "dynamic-icon" | "on-off-toggle" | "mia/endpoints/crud"
   "shared-key"?: "back-kit/data-schema" | string
+  enumLabels?: {
+    [k: string]: LocalizedText
+  }
 }
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema

@@ -89,6 +89,10 @@
             { "type": "string", "enum": ["back-kit/data-schema"] },
             { "type": "string" }
           ]
+        },
+        "enumLabels": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/localized-text" }
         }
       },
       "additionalProperties": false
@@ -191,7 +195,12 @@
       "default": {},
       "additionalProperties": { "$ref": "#" }
     },
-    "additionalProperties": { "$ref": "#" },
+    "additionalProperties": {
+      "oneOf": [
+        { "type": "boolean" },
+        { "$ref": "#" }
+      ]
+    },
     "patternProperties": {
       "type": "object",
       "default": {},
