@@ -81,7 +81,8 @@
             "localized-text",
             "dynamic-icon",
             "on-off-toggle",
-            "mia/endpoints/crud"
+            "mia/endpoints/crud",
+            "micro-lc/applications"
           ]
         },
         "shared-key": {
