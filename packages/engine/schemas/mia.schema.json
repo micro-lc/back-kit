@@ -81,6 +81,7 @@
             "localized-text",
             "dynamic-icon",
             "on-off-toggle",
+            "color",
             "mia/endpoints/crud",
             "micro-lc/applications"
           ]
