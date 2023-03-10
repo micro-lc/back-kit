@@ -53,6 +53,7 @@ export type ReducedFetchHandler = (info: URL, init?: RequestInit | undefined) =>
 export type Fetch = {
   url: FetchUrl
   method?: Method
+  notify?: boolean
   handler?: ReducedFetchHandler
   [k: string]: unknown
 }[]
