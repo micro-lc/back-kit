@@ -252,9 +252,15 @@
               }
             },
             {
+              "tag": "div",
+              "attributes": {
+                "style": "flex-grow: 1;"
+              }
+            },
+            {
               "tag": "bk-footer",
               "attributes": {
-                "style": "flex-grow: 1; display: flex; justify-content: end; align-items: center;"
+                "style": "display: flex; justify-content: end; align-items: center;"
               }
             },
             {
