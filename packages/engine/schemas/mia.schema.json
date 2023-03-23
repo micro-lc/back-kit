@@ -66,6 +66,7 @@
         },
         "label": { "$ref": "#/definitions/localized-text" },
         "description": { "$ref": "#/definitions/localized-text" },
+        "docLink": { "type": "string" },
         "oneOfGuard": { "type": "string" },
         "oneOfDefault": { "type": "number" },
         "priority": {

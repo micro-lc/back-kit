@@ -61,6 +61,7 @@ export type Fetch = {
 export interface Manifest {
   label?: LocalizedText
   description?: LocalizedText
+  docLink?: string
   type?: "layout" | "connector" | "adapter"
   mocks?: {
     fetch?: FetchFactory
@@ -177,6 +178,7 @@ export interface MiaConfiguration {
       }
   label?: LocalizedText
   description?: LocalizedText
+  docLink?: string
   oneOfGuard?: string
   oneOfDefault?: number
   priority?: "high" | "medium" | "low"
