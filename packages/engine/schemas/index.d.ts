@@ -15,16 +15,6 @@ export type LocalizedText =
       [k: string]: string
     }
 /**
- * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "fetchFactory".
- */
-export type FetchFactory = (context: Record<string, unknown>) => Fetch
-/**
- * This interface was referenced by `Manifest`'s JSON-Schema
- * via the `definition` "storageFactory".
- */
-export type StorageFactory = (context: Record<string, unknown>) => Storage
-/**
  * @minItems 1
  *
  * This interface was referenced by `MiaSchema`'s JSON-Schema
@@ -36,6 +26,16 @@ export type SchemaArray = [MiaSchema, ...MiaSchema[]]
  * via the `definition` "stringArray".
  */
 export type StringArray = string[]
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "fetchFactory".
+ */
+export type FetchFactory = (context: Record<string, unknown>) => Fetch
+/**
+ * This interface was referenced by `Manifest`'s JSON-Schema
+ * via the `definition` "storageFactory".
+ */
+export type StorageFactory = (context: Record<string, unknown>) => Storage
 /**
  * This interface was referenced by `Manifest`'s JSON-Schema
  * via the `definition` "method".
@@ -60,6 +60,9 @@ export type Fetch = {
 
 export interface Manifest {
   label?: LocalizedText
+  definitions?: {
+    [k: string]: MiaSchema
+  }
   description?: LocalizedText
   docLink?: string
   type?: "layout" | "connector" | "adapter"
@@ -81,9 +84,6 @@ export interface MiaSchema {
   $comment?: string
   title?: string
   description?: string
-  definitions?: {
-    [k: string]: MiaSchema
-  }
   type?:
     | ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
     | [
