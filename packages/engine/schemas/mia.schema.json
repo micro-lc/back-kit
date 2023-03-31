@@ -126,11 +126,6 @@
     "description": {
       "type": "string"
     },
-    "definitions": {
-      "type": "object",
-      "default": {},
-      "additionalProperties": { "$ref": "#" }
-    },
     "type": {
       "anyOf": [
         { "$ref": "#/definitions/simpleTypes" },
