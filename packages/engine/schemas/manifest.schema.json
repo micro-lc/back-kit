@@ -58,6 +58,13 @@
     "label": {
       "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
     },
+    "definitions": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": {
+        "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#"
+      }
+    },
     "description": {
       "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
     },
