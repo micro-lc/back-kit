@@ -189,6 +189,7 @@ export interface MiaConfiguration {
     | "on-off-toggle"
     | "color"
     | "event"
+    | "mia/endpoints"
     | "mia/endpoints/crud"
     | "micro-lc/applications"
   "shared-key"?: "back-kit/data-schema" | string

@@ -84,6 +84,7 @@
             "on-off-toggle",
             "color",
             "event",
+            "mia/endpoints",
             "mia/endpoints/crud",
             "micro-lc/applications"
           ]
