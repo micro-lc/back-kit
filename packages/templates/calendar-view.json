@@ -58,19 +58,26 @@
         {
           "content": [
             {
-              "tag": "div",
               "content": [
                 {
-                  "properties": {
-                    "content": "Page title"
-                  },
-                  "tag": "bk-title"
-                },
-                {
-                  "tag": "bk-refresh-button",
                   "attributes": {
-                    "style": "margin-left: 14px;"
-                  }
+                    "style": "display: flex; gap: 10px;"
+                  },
+                  "content": [
+                    {
+                      "properties": {
+                        "content": "Page title"
+                      },
+                      "tag": "bk-title"
+                    },
+                    {
+                      "attributes": {
+                        "style": "align-self: end;"
+                      },
+                      "tag": "bk-refresh-button"
+                    }
+                  ],
+                  "tag": "div"
                 },
                 {
                   "tag": "div",
