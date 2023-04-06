@@ -148,8 +148,7 @@
       "default": false
     },
     "examples": {
-      "type": "array",
-      "items": true
+      "type": "array"
     },
     "multipleOf": {
       "type": "number",

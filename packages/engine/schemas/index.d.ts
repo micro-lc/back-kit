@@ -93,7 +93,7 @@ export interface MiaSchema {
   default?: unknown
   readOnly?: boolean
   writeOnly?: boolean
-  examples?: true[]
+  examples?: unknown[]
   multipleOf?: number
   maximum?: number
   exclusiveMaximum?: number
