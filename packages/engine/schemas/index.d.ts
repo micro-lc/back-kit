@@ -191,6 +191,7 @@ export interface MiaConfiguration {
     | "event"
     | "mia/endpoints"
     | "mia/endpoints/crud"
+    | "mia/endpoints/crud-and-generate-data-schema"
     | "micro-lc/applications"
   "shared-key"?: "back-kit/data-schema" | string
   enumLabels?: {
