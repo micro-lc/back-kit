@@ -307,7 +307,7 @@
         {
           "properties": {
             "basePath": "/v2/change-me/export",
-            "streamSaverIFrameSrc": "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/export-service-worker.html",
+            "streamSaverIFrameSrc": "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@{{BACK_KIT_VERSION}}/dist/export-service-worker.html",
             "dataSchema": {
               "$ref": "#/definitions/dataSchema"
             }
@@ -330,7 +330,7 @@
       }
     },
     "sources": [
-      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@latest/dist/bk-web-components.esm.js"
+      "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@{{BACK_KIT_VERSION}}/dist/bk-web-components.esm.js"
     ]
   }
 }
