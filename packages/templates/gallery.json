@@ -316,7 +316,7 @@
         },
         {
           "properties": {
-            "basePath": "/v2/file"
+            "basePath": "/files-service"
           },
           "tag": "bk-file-client"
         },
