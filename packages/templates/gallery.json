@@ -5,6 +5,16 @@
     "label": {
       "en": "Picture gallery",
       "it": "Galleria di immagini"
+    },
+    "variables": {
+      "BACK_KIT_VERSION": {
+        "default": "latest"
+      }
+    },
+    "configurator-meta": {
+      "sharedPropertiesTypeMap": {
+        "dataSchema": "back-kit/data-schema"
+      }
     }
   },
   "template": {

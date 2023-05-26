@@ -8,6 +8,34 @@
       "properties": {
         "label": {
           "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
+        },
+        "configurator-meta": {
+          "type": "object",
+          "properties": {
+            "sharedPropertiesTypeMap": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "variables": {
+          "type": "object",
+          "title": "Variables",
+          "description": "A set of variables that are used by the current template and whose default value is hinted by the value of the inner field `default`",
+          "patternProperties": {
+            "^[^\\s]+$": {
+              "type": "object",
+              "properties": {
+                "default": {
+                  "type": "string",
+                  "default": ""
+                }
+              }
+            }
+          },
+          "additionalProperties": false
         }
       }
     },
