@@ -8,7 +8,7 @@
     },
     "variables": {
       "BACK_KIT_VERSION": {
-        "default": "^1"
+        "default": "1.3.12"
       }
     },
     "configurator-meta": {
@@ -91,25 +91,19 @@
           "tag": "bk-state-adapter"
         },
         {
-          "tag": "bk-url-parameters"
+          "tag": "bk-url-parameters",
+          "properties": {
+            "urlMask": "./details-page-route/:_id"
+          }
         },
         {
           "properties": {
-            "basePath": "/v2/change-me",
+            "basePath": "/data-source-endpoint",
             "dataSchema": {
               "$ref": "#/definitions/dataSchema"
             }
           },
           "tag": "bk-crud-client"
-        },
-        {
-          "properties": {
-            "basePath": "/v2/file"
-          },
-          "tag": "bk-file-client"
-        },
-        {
-          "tag": "bk-file-manager"
         }
       ],
       "tag": "div",

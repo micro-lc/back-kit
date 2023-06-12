@@ -1,11 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/gallery.json#",
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/single-view.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
-    "label": {
-      "en": "Picture gallery",
-      "it": "Galleria di immagini"
-    },
+    "label": "Single View",
     "variables": {
       "BACK_KIT_VERSION": {
         "default": "1.3.12"
@@ -29,15 +26,12 @@
           "__STATE__": {
             "type": "string",
             "label": "State",
-            "enum": ["PUBLIC", "DRAFT", "TRASH", "DELETED"]
-          },
-          "image": {
-            "type": "object",
-            "format": "file",
-            "label": "Image",
-            "filtersOptions": {
-              "hidden": true
-            }
+            "enum": [
+              "PUBLIC",
+              "DRAFT",
+              "TRASH",
+              "DELETED"
+            ]
           }
         }
       }
@@ -58,7 +52,7 @@
                 {
                   "tag": "bk-refresh-button",
                   "attributes": {
-                    "style": "margin-left: 14px;"
+                    "style": "margin-left: 14px; align-self: end;"
                   }
                 },
                 {
@@ -74,21 +68,10 @@
                   "tag": "bk-search-bar"
                 },
                 {
-                  "properties": {
-                    "iconId": "DownloadOutlined",
-                    "content": "Export",
-                    "clickConfig": {
-                      "type": "event",
-                      "actionConfig": {
-                        "label": "export-data",
-                        "payload": {}
-                      }
-                    }
-                  },
-                  "tag": "bk-button"
-                },
-                {
-                  "tag": "bk-add-new-button"
+                  "tag": "div",
+                  "attributes": {
+                    "style": "flex-grow: 1;"
+                  }
                 },
                 {
                   "properties": {
@@ -143,6 +126,17 @@
                   "tag": "bk-filters-manager"
                 }
               ]
+            },
+            {
+              "tag": "bk-breadcrumbs",
+              "attributes": {
+                "style": "padding: 0 20px;"
+              },
+              "properties": {
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
+                }
+              }
             }
           ],
           "tag": "header",
@@ -155,101 +149,27 @@
           "content": [
             {
               "properties": {
-                "titleSource": "image.name",
-                "subTitleSource": "_id",
-                "thumbnailSource": "image.location",
-                "actions": [
-                  {
-                    "content": "Download",
-                    "iconId": "fas fa-download",
-                    "action": {
-                      "type": "event",
-                      "config": {
-                        "events": {
-                          "label": "download-file",
-                          "payload": {
-                            "file": "{{image.file}}"
-                          },
-                          "meta": {
-                            "showInViewer": false
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "content": "Delete",
-                    "iconId": "fas fa-trash",
-                    "action": {
-                      "type": "event",
-                      "config": {
-                        "events": {
-                          "label": "delete-data",
-                          "payload": "{{rawObject context}}"
-                        }
-                      }
-                    }
-                  }
-                ]
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
+                },
+                "navigationRowActions": {
+                  "kind": "icons",
+                  "actions": []
+                },
+                "maxLines": 10
               },
-              "tag": "bk-gallery"
+              "tag": "bk-table"
             },
             {
               "properties": {
-                "requireConfirm": {
-                  "onClose": true,
-                  "onSave": true
-                },
+                "allowObjectAsTable": true,
+                "readonlyOnView": true,
                 "dataSchema": {
                   "$ref": "#/definitions/dataSchema"
                 },
                 "width": "70vw"
               },
               "tag": "bk-form-modal"
-            },
-            {
-              "tag": "bk-confirmation-modal"
-            },
-            {
-              "properties": {
-                "rootElementSelectors": "main.micro-lc-layout-content",
-                "successEventMap": {
-                  "create-data": {
-                    "title": "Success",
-                    "content": "Data successfully created",
-                    "type": "success"
-                  },
-                  "update-data": {
-                    "title": "Success",
-                    "content": "Data successfully updated",
-                    "type": "success"
-                  },
-                  "delete-data": {
-                    "title": "Success",
-                    "content": "Data successfully deleted",
-                    "type": "success"
-                  }
-                },
-                "errorEventMap": {
-                  "create-data": {
-                    "title": "Error",
-                    "content": "An error occurred during order creation",
-                    "type": "error"
-                  },
-                  "update-data": {
-                    "title": "Error",
-                    "content": "An error occurred during order updated",
-                    "type": "error"
-                  },
-                  "delete-data": {
-                    "title": "Error",
-                    "content": "An error occurred during order deletion",
-                    "type": "error"
-                  }
-                }
-              },
-              "tag": "bk-notifications",
-              "attributes": {}
             }
           ],
           "tag": "main",
@@ -276,20 +196,15 @@
         {
           "content": [
             {
-              "tag": "bk-bulk-delete"
-            },
-            {
-              "tag": "bk-bulk-actions",
-              "properties": {
-                "dataSchema": {
-                  "$ref": "#/definitions/dataSchema"
-                }
+              "tag": "div",
+              "attributes": {
+                "style": "flex-grow: 1;"
               }
             },
             {
               "tag": "bk-footer",
               "attributes": {
-                "style": "flex-grow: 1; display: flex; justify-content: end; align-items: center;"
+                "style": "display: flex; justify-content: end; align-items: center;"
               }
             },
             {
@@ -307,31 +222,12 @@
 
         {
           "properties": {
-            "basePath": "/data-source-endpoint",
+            "basePath": "/single-view-endpoint",
             "dataSchema": {
               "$ref": "#/definitions/dataSchema"
             }
           },
           "tag": "bk-crud-client"
-        },
-        {
-          "properties": {
-            "basePath": "/data-source-endpoint/export",
-            "streamSaverIFrameSrc": "https://cdn.jsdelivr.net/npm/@micro-lc/bk-web-components@{{BACK_KIT_VERSION}}/dist/export-service-worker.html",
-            "dataSchema": {
-              "$ref": "#/definitions/dataSchema"
-            }
-          },
-          "tag": "bk-export"
-        },
-        {
-          "properties": {
-            "basePath": "/files-service"
-          },
-          "tag": "bk-file-client"
-        },
-        {
-          "tag": "bk-file-manager"
         }
       ],
       "tag": "div",
