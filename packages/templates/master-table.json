@@ -1,10 +1,10 @@
 {
-  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/calendar-view.json#",
+  "$id": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/templates/master-table.json#",
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
     "label": {
-      "en": "Calendar view",
-      "it": "Vista a calendario"
+      "en": "Master table",
+      "it": "Tabella master"
     },
     "variables": {
       "BACK_KIT_VERSION": {
@@ -23,44 +23,20 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "string"
+            "type": "string",
+            "label": "ID"
           },
           "__STATE__": {
             "type": "string",
-            "default": "PUBLIC",
+            "label": "State",
             "enum": [
               "PUBLIC",
               "DRAFT",
               "TRASH",
               "DELETED"
             ]
-          },
-          "title": {
-            "type": "string",
-            "label": "Title"
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date-time",
-            "label": "Start date",
-            "dateOptions": {
-              "displayFormat": "DD/MM/YYYY, HH:mm"
-            }
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date-time",
-            "label": "End date",
-            "dateOptions": {
-              "displayFormat": "DD/MM/YYYY, HH:mm"
-            }
           }
-        },
-        "required": [
-          "title",
-          "startDate",
-          "endDate"
-        ]
+        }
       }
     },
     "content": {
@@ -71,24 +47,16 @@
               "tag": "div",
               "content": [
                 {
-                  "attributes": {
-                    "style": "display: flex; gap: 10px;"
+                  "properties": {
+                    "content": "Page title"
                   },
-                  "content": [
-                    {
-                      "properties": {
-                        "content": "Page title"
-                      },
-                      "tag": "bk-title"
-                    },
-                    {
-                      "attributes": {
-                        "style": "align-self: end;"
-                      },
-                      "tag": "bk-refresh-button"
-                    }
-                  ],
-                  "tag": "div"
+                  "tag": "bk-title"
+                },
+                {
+                  "tag": "bk-refresh-button",
+                  "attributes": {
+                    "style": "margin-left: 14px; align-self: end;"
+                  }
                 },
                 {
                   "tag": "div",
@@ -187,17 +155,76 @@
                 "dataSchema": {
                   "$ref": "#/definitions/dataSchema"
                 },
-                "view": "month",
-                "height": "70vh",
-                "filtersName": {
-                  "start": "Start",
-                  "end": "End"
-                }
+                "maxLines": 10,
+                "customActions": [
+                  {
+                    "tag": "bk-button",
+                    "properties": {
+                      "iconId": "DeleteOutlined",
+                      "content": "",
+                      "type": "ghost",
+                      "action": {
+                        "type": "event",
+                        "config": {
+                          "events": {
+                            "label": "require-confirm",
+                            "payload": {
+                              "content": {
+                                "en": "Do you want to confirm this action?",
+                                "it": "Vuoi confermare questa azione?"
+                              },
+                              "configOk": {
+                                "properties": {
+                                  "action": {
+                                    "type": "event",
+                                    "config": {
+                                      "events": {
+                                        "label": "delete-data",
+                                        "payload": "{{rawObject args.[1]}}"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "tag": "bk-button",
+                    "properties": {
+                      "content": {
+                        "en": "Details",
+                        "it": "Dettaglio"
+                      },
+                      "iconId": "fas fa-arrow-right",
+                      "iconPlacement": "right",
+                      "clickConfig": {
+                        "type": "push",
+                        "actionConfig": {
+                          "url": "./details-page-route/{{args.[1]._id}}"
+                        }
+                      }
+                    }
+                  }
+                ]
               },
-              "tag": "bk-calendar",
-              "attributes": {
-                "style": "background-color: white; padding: 1em; border-radius: 8px; display:flex; flex-direction: column; flex-grow: 1"
-              }
+              "tag": "bk-table"
+            },
+            {
+              "properties": {
+                "requireConfirm": {
+                  "onClose": true,
+                  "onSave": true
+                },
+                "dataSchema": {
+                  "$ref": "#/definitions/dataSchema"
+                },
+                "width": "70vw"
+              },
+              "tag": "bk-form-modal"
             },
             {
               "tag": "bk-confirmation-modal"
@@ -254,33 +281,6 @@
           "content": [
             {
               "properties": {
-                "requireConfirm": {
-                  "onClose": true,
-                  "onSave": true
-                },
-                "dataSchema": {
-                  "$ref": "#/definitions/dataSchema"
-                },
-                "width": "60vw",
-                "dataCustomActions": [
-                  {
-                    "hiddenOnInsert": true,
-                    "label": "Delete",
-                    "icon": "far fa-trash-alt",
-                    "kind": "event",
-                    "content": "delete-data",
-                    "meta": {
-                      "actionId": "delete-data"
-                    },
-                    "requireConfirm": true,
-                    "closeOnClick": true
-                  }
-                ]
-              },
-              "tag": "bk-form-drawer"
-            },
-            {
-              "properties": {
                 "dataSchema": {
                   "$ref": "#/definitions/dataSchema"
                 },
@@ -306,9 +306,15 @@
               }
             },
             {
+              "tag": "div",
+              "attributes": {
+                "style": "flex-grow: 1;"
+              }
+            },
+            {
               "tag": "bk-footer",
               "attributes": {
-                "style": "flex-grow: 1; display: flex; justify-content: end; align-items: center;"
+                "style": "display: flex; justify-content: end; align-items: center;"
               }
             },
             {

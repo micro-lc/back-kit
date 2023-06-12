@@ -9,17 +9,26 @@
     "./blank.json": {
       "default": "./blank.json"
     },
-    "./page-with-table.json": {
-      "default": "./page-with-table.json"
-    },
     "./calendar-view.json": {
       "default": "./calendar-view.json"
+    },
+    "./details-page.json": {
+      "default": "./details-page.json"
     },
     "./gallery.json": {
       "default": "./gallery.json"
     },
-    "./details-page.json": {
-      "default": "./details-page.json"
+    "./master-table.json": {
+      "default": "./master-table.json"
+    },
+    "./page-with-table.json": {
+      "default": "./page-with-table.json"
+    },
+    "./single-view.json": {
+      "default": "./single-view.json"
+    },
+    "./table-with-file.json": {
+      "default": "./table-with-file.json"
     }
   },
   "engines": {
