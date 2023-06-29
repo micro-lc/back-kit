@@ -98,9 +98,8 @@ const main = async () => {
 
   const changelogPath = await updateChangelog(workingDir, newVersion)
 
-  const tag = `v${newVersion}`
-  const tagScope = '@micro-lc/back-kit-templates'
-  const message = `${tagScope} tagged at version ${newVersion}`
+  const tag = '@micro-lc/back-kit-templates'
+  const message = `${tag} tagged at version ${newVersion}`
 
   const files = [
     '.yarn/versions',
