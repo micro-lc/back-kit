@@ -7,7 +7,7 @@ env:
 on:
   push:
     tags:
-      - '@micro-lc/back-kit-templates'
+      - '@micro-lc/back-kit-templates@*'
 
 jobs:
   cdn-publish:
@@ -23,12 +23,12 @@ jobs:
           node-version: ${{ env.node-version }}
 
       - name: Install mia's cdn-publish CLI
-        run: npm i -g @mia-platform/cdn-publish:0.4.0
+        run: npm i -g @mia-platform/cdn-publish@0.4.0
 
       - name: Publish to Mia CDN
         env:
           CDN_STORAGE_ACCESS_KEY: ${{ secrets.CDN_STORAGE_ACCESS_KEY }}
-          CDN_STORAGE_ZONE_NAME: ${{ secrets.CDN_STORAGE_ZONE_NAME }}
+          CDN_STORAGE_ZONE_NAME: 'mia-platform'
         run: |
           cdn publish \
             -k "$CDN_STORAGE_ACCESS_KEY" \
