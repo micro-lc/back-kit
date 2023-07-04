@@ -10,6 +10,7 @@
       "en": "A page built to visualize data in a tabular view. It offers a readonly interaction with the data and is equipped for nested data visualization. It is well suited to show a Fast Data Single View.",
       "it": "Una pagina costruita per visualizzare i dati in una tabella. Offre un'interazione in sola lettura con i dati e supporta la visualizzazione di campi innestati. È adatta a mostrare Fast Data Single View."
     },
+    "doc-link": "https://docs.mia-platform.eu/docs/business_suite/backoffice-configurator/compose_pages#table-read-only-table-with-nested-fields",
     "variables": {
       "BACK_KIT_VERSION": {
         "default": "1.3.15"

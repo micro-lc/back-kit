@@ -10,6 +10,7 @@
       "en": "A table page built to be connected with another page that provides further details on the data (this template does not create the details page).",
       "it": "Una pagina con tabella costruita per essere connessa a un'altra pagina di dettaglio (questo template non crea la pagina di dettaglio)."
     },
+    "doc-link": "https://docs.mia-platform.eu/docs/business_suite/backoffice-configurator/compose_pages#table-base-table-with-navigation-button",
     "variables": {
       "BACK_KIT_VERSION": {
         "default": "1.3.15"

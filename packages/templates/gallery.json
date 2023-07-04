@@ -10,6 +10,7 @@
       "en": "A page built to visualize image files through a gallery view. Besides filtering, exporting, pagination, creation, and editing functionalities, it provides a way to upload and download files.",
       "it": "Una pagina costruita per visualizzare immagini in una galleria. Oltre a funzionalità di filtraggio, esportazione, paginazione, creazione e modifica dei dati, offre anche un modo di caricare e scaricare file."
     },
+    "doc-link": "https://docs.mia-platform.eu/docs/business_suite/backoffice-configurator/compose_pages#picture-gallery",
     "variables": {
       "BACK_KIT_VERSION": {
         "default": "1.3.15"
