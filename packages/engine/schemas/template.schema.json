@@ -9,6 +9,12 @@
         "label": {
           "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
         },
+        "description": {
+          "$ref": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/mia.schema.json#/definitions/localized-text"
+        },
+        "doc-link": {
+          "type": "string"
+        },
         "configurator-meta": {
           "type": "object",
           "properties": {
