@@ -3,8 +3,12 @@
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
     "label": {
-      "en": "Details page",
-      "it": "Pagina di dettaglio"
+      "en": "Show info/details page",
+      "it": "Pagina di dettaglio/informazioni"
+    },
+    "description": {
+      "en": "A page built to display a detailed view of data like a single row of a table.",
+      "it": "Una pagina costruita per mostrare una visualizzazione di dettaglio di un dato, come una singola riga di tabella."
     },
     "variables": {
       "BACK_KIT_VERSION": {

@@ -5,6 +5,10 @@
     "label": {
       "en": "Blank page",
       "it": "Pagina vuota"
+    },
+    "description": {
+      "en": "An empty page for you to create your content.",
+      "it": "Una pagina vuota per creare nuovi contenuti da zero."
     }
   },
   "template": {

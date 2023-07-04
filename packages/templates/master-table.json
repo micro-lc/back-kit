@@ -3,8 +3,12 @@
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
     "label": {
-      "en": "Master table",
-      "it": "Tabella master"
+      "en": "Table: base table with navigation button",
+      "it": "Tabella: tabella base con un bottone di navigazione"
+    },
+    "details": {
+      "en": "A table page built to be connected with another page that provides further details on the data (this template does not create the details page).",
+      "it": "Una pagina con tabella costruita per essere connessa a un'altra pagina di dettaglio (questo template non crea la pagina di dettaglio)."
     },
     "variables": {
       "BACK_KIT_VERSION": {

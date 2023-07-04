@@ -6,6 +6,10 @@
       "en": "Calendar view",
       "it": "Vista a calendario"
     },
+    "description": {
+      "en": "A page built to visualize data on a calendar. It provides filtering, exporting, pagination, creation, and editing functionalities.",
+      "it": "Una pagina costruita per visualizzare i dati su un calendario. Offre funzionalità di filtraggio, esportazione, paginazione, creazione e modifica dei dati."
+    },
     "variables": {
       "BACK_KIT_VERSION": {
         "default": "1.3.15"

@@ -3,8 +3,12 @@
   "$schema": "https://raw.githubusercontent.com/micro-lc/back-kit/main/packages/engine/schemas/template.schema.json#",
   "meta": {
     "label": {
-      "en": "Page with table",
-      "it": "Pagina con tabella"
+      "en": "Table: base table",
+      "it": "Tabella: tabella base"
+    },
+    "description": {
+      "en": "A page built to display data with a tabular view. It provides filtering, exporting, pagination, creation, and editing functionalities.",
+      "it": "Una pagina costruita per visualizzare i dati in una tabella. Offre funzionalità di filtraggio, esportazione, paginazione, creazione e modifica dei dati."
     },
     "variables": {
       "BACK_KIT_VERSION": {
