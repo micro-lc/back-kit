@@ -148,6 +148,20 @@
                   "tag": "bk-filters-manager"
                 }
               ]
+            },
+            {
+              "tag": "div",
+              "attributes": {
+                "style": "padding: 0 20px;"
+              },
+              "content": {
+                "tag": "bk-breadcrumbs",
+                "properties": {
+                  "dataSchema": {
+                    "$ref": "#/definitions/dataSchema"
+                  }
+                }
+              }
             }
           ],
           "tag": "header",
