@@ -136,13 +136,16 @@
               ]
             },
             {
-              "tag": "bk-breadcrumbs",
+              "tag": "div",
               "attributes": {
                 "style": "padding: 0 20px;"
               },
-              "properties": {
-                "dataSchema": {
-                  "$ref": "#/definitions/dataSchema"
+              "content": {
+                "tag": "bk-breadcrumbs",
+                "properties": {
+                  "dataSchema": {
+                    "$ref": "#/definitions/dataSchema"
+                  }
                 }
               }
             }
